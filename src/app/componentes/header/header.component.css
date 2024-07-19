@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  box-shadow: 9px 18px 44px -15px rgb(221 221 221);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo > img {
+  width: 2em;
+  height: 2em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header li {
+  list-style: none;
+  margin-right: 1em;
+
+}
+
+.add{
+  color: #dec129;
+}
+
+.add:hover{
+  background: #e2e2e2
+}

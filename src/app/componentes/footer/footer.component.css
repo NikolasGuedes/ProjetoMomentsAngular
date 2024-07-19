@@ -1,0 +1,16 @@
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+}
+
+footer h3{
+  font-size: 1em;
+  margin-bottom: 0.2em;
+}
+
+footer span{
+  color: #dec129;
+}
