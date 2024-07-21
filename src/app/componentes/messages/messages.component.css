@@ -1,0 +1,36 @@
+.message{
+  position: fixed;
+  top: 5em;
+  width: 50%;
+  margin-left: 50%;
+  left: -25%;
+  z-index: 10;
+  background-color: #ffffff;
+
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: 9px 18px 44px -15px rgb(221 221 221);
+}
+
+.message-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.clear{
+  padding: .5em 1em;
+  position: relative;
+  left: 1.5em;
+  bottom: 2em;
+
+  background: #dec129;
+  border: none;
+  border-radius: 0.5em;
+
+  cursor: pointer;
+}
+
+.clear:hover{
+  background: #ffdf3f;
+}
