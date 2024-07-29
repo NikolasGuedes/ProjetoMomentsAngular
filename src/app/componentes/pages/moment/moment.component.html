@@ -1,1 +1,106 @@
-<p>moment works!</p>
+<div class="pagina_moment" *ngIf="moment">
+  <h3>{{ moment.title }}</h3>
+  <div class="secao_moment">
+    <img
+      src="{{ baseApiUrl }}uploads/{{ moment.image }}"
+      alt="{{ moment.title }}"
+      class="imagem_moment"
+    />
+    <div class="descricao_moment">
+      <h3>Sobre este momento:</h3>
+      <p>{{ moment.description }}</p>
+      <div class="actions">
+        <button class="btn_editar" routerLink="/moments/edit/{{ moment.id }}">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
+            />
+          </svg>
+          Editar
+        </button>
+        <button class="btn_excluir" (click)="removeHandler(moment.id!)">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="comentarios">
+    <h3>
+      Comentarios ({{
+        moment.comments!.length > 0 ? moment.comments!.length : 0
+      }}):
+    </h3>
+    <div *ngIf="moment.comments!.length > 0; else noComments" class="secao_cometarios_postados">
+      <div class="comentario_postado" *ngFor="let comment of moment.comments">
+        <p class="comentario">{{ comment.text }}</p>
+        <p class="autor"><span>por:</span>{{ comment.username }}</p>
+      </div>
+    </div>
+    <ng-template #noComments>
+      <h3>Nenhum comentario no momento</h3>
+    </ng-template>
+  </div>
+  <div class="form-comentario">
+    <form
+      [formGroup]="commentForm"
+      #formDir="ngForm"
+      (ngSubmit)="onSubmit(formDir)"
+    >
+      <h3>Deixe um comentario!</h3>
+      <div class="form-group">
+        <label for="text">Comentário:</label>
+        <textarea
+          formControlName="text"
+          placeholder="O que você quer comentar ?"
+          required
+        ></textarea>
+        <div *ngIf="text.invalid && formDir.submitted" class="validation-error">
+          <p *ngIf="text.errors?.['required']">O texto é obrigatorio</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Nome:</label>
+        <input
+          formControlName="username"
+          type="text"
+          placeholder="Digite seu nome"
+          required
+        />
+        <div
+          *ngIf="username.invalid && formDir.submitted"
+          class="validation-error"
+        >
+          <p *ngIf="username.errors?.['required']">O nome é obrigatorio</p>
+        </div>
+      </div>
+      <input type="submit" value="Comentar!" />
+    </form>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { NewMomentComponent } from './componentes/pages/new-moment/new-moment.co
 import { MomentFormComponent } from './componentes/moment-form/moment-form.component';
 import { MessagesComponent } from './componentes/messages/messages.component';
 import { MomentComponent } from './componentes/pages/moment/moment.component';
+import { EditMomentComponent } from './componentes/pages/edit-moment/edit-moment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MomentComponent } from './componentes/pages/moment/moment.component';
     NewMomentComponent,
     MomentFormComponent,
     MessagesComponent,
-    MomentComponent
+    MomentComponent,
+    EditMomentComponent
   ],
   imports: [
     BrowserModule,

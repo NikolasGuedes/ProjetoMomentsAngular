@@ -33,13 +33,14 @@ export class NewMomentComponent implements OnInit {
     }
 
     // Enviar para o service
-    await this.momentService.createMoment(formData).subscribe();
+    await this.momentService.createMoment(formData).subscribe({
+      next: () => {
+        //exibir Mensagem
+        this.messageServive.add('Momento adicionado com sucesso!');
 
-    //exibir Mensagem
-    this.messageServive.add('Momento adicionado com sucesso!');
-
-    //fazer redirect da pagina
-    this.router.navigate(["/"])
-
+        //fazer redirect da pagina
+        this.router.navigate(['/']);
+      },
+    });
   }
 }

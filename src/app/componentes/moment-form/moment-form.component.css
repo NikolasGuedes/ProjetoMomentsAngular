@@ -14,36 +14,41 @@ form {
   background-color: rgb(255, 255, 255);
   width: 80%;
   min-height: 60vh;
-  padding:2em;
+  padding: 2em;
   border-radius: 1em;
   box-shadow: 9px 18px 44px -15px rgb(221 221 221);
 }
 
-.form-group{
+.form-group {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 0.5em;
 }
 
-input[type ="submit"]{
-  background:none;
+.form-group input:focus {
+  outline: none;
+  border: 0.1em solid #dec129;
+}
+
+input[type="submit"] {
+  background: none;
   border: 1px solid #dec129;
   color: #dec129;
   width: 80%;
   padding: 1em;
   margin-top: 1em;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
   border-radius: 1em;
 }
 
-input[type ="submit"]:hover{
+input[type="submit"]:hover {
   color: #ffffff;
   background: #dec129;
 }
 
-input[type ="file"]{
+input[type="file"] {
   text-align: center;
   background: rgb(245, 245, 245);
   width: 100%;
@@ -52,7 +57,7 @@ input[type ="file"]{
   margin-top: 1em;
 }
 
-input[type ="text"]{
+input[type="text"] {
   background: rgb(245, 245, 245);
   width: 100%;
   border: 0;
@@ -60,11 +65,15 @@ input[type ="text"]{
   margin-top: 1em;
 }
 
-textarea{
+textarea:focus {
+  outline: none;
+  border: 0.1em solid #dec129;
+}
+
+textarea {
   background: rgb(245, 245, 245);
   width: 100%;
   border: 0;
   padding: 1em;
   margin-top: 1em;
 }
-
